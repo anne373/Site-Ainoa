@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ainoa Coiffure - Votre Salon de Coiffure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/home_style.css">
+</head>
+<body>
+
+    <!-- ======================= Entête et Navigation ======================= -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo-ainoa.png" alt="Logo Ainoa Coiffure">
+            </a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">Le Salon</a></li>
+                    <li><a href="#gallery">Nos Créations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-nav-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#about">Le Salon</a></li>
+            <li><a href="#gallery">Nos Créations</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Rendez-vous</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- ======================= Section Héros ======================= -->
+        <section id="hero">
+            <div class="hero-image-container">
+                <img src="images/hero-ainoa.jpg" alt="Mannequin pour Ainoa Coiffure">
+            </div>
+            <div class="hero-content">
+                <h1>L'art de la coiffure, la passion du soin.</h1>
+                <p>Bienvenue chez Ainoa Coiffure, où votre beauté est notre inspiration.</p>
+                <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Prendre Rendez-vous</a>
+            </div>
+        </section>
+
+        <!-- ======================= Section À Propos ======================= -->
+        <section id="about">
+            <div class="container">
+                <h2>Une expérience unique pour vos cheveux</h2>
+                <p class="subtitle">
+                    Chez Ainoa, nous croyons que chaque coupe est une œuvre d'art et chaque client une muse. Dans une atmosphère relaxante et chaleureuse, notre équipe d'experts passionnés met tout son savoir-faire à votre service pour révéler la beauté naturelle de vos cheveux. Nous utilisons des produits de haute qualité et des techniques innovantes pour un résultat qui dépasse vos attentes.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= NOUVEAU: Section Head SPA ======================= -->
+        <section id="head-spa" class="head-spa-section">
+            <div class="container">
+                <h2>Découvrez notre Head SPA</h2>
+                <p class="subtitle">
+                    Une évasion sensorielle unique pour le cuir chevelu et l'esprit. Laissez-vous transporter par nos rituels de soin inspirés du Japon.
+                </p>
+                <div class="head-spa-content">
+                    <div class="head-spa-image">
+                        <!-- J'ai utilisé une image libre de droits qui correspond à l'ambiance -->
+                        <img src="https://images.pexels.com/photos/7697486/pexels-photo-7697486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Femme recevant un soin relaxant du cuir chevelu au salon Ainoa">
+                    </div>
+                    <div class="head-spa-text">
+                        <h3>Un Voyage de Bien-Être Absolu</h3>
+                        <p>Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de lâcher-prise.</p>
+                        <a href="templates/head-spa.html" class="btn btn-primary">Découvrir les Soins</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======================= Fin de la section Head SPA ======================= -->
+
+
+        <!-- ======================= Section Galerie Photos ======================= -->
+        <section id="gallery">
+            <div class="container">
+                <h2>Nos Créations</h2>
+                <p class="subtitle">Découvrez quelques exemples de notre travail et laissez-vous inspirer.</p>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="https://images.unsplash.com/photo-1597589022928-bb3f73918934?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 1"></div>
+                    <div class="photo-item"><img src="https://images.unsplash.com/photo-1599331882413-529a696206d0?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 2"></div>
+                    <div class="photo-item"><img src="https://images.unsplash.com/photo-1560790678-e72d854ad360?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 3"></div>
+                    <div class="photo-item"><img src="https://images.unsplash.com/photo-1621602697523-a54fba399317?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 4"></div>
+                    <div class="photo-item"><img src="https://images.unsplash.com/photo-1631945398226-45813f309a4d?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 5"></div>
+                    <div class="photo-item"><img src="https://plus.unsplash.com/premium_photo-1661281404132-295b223fb733?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="Création coiffure 6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Section Contact & Liens ======================= -->
+        <section id="contact">
+            <div class="container">
+                <h2>Rejoignez-nous</h2>
+                <p class="subtitle">Retrouvez-nous au salon ou sur les réseaux sociaux.</p>
+                <div class="contact-info">
+                    <div class="info-block">
+                        <h3>Adresse</h3>
+                        <p>44 Bd Charles de Gaulle<br>37540 Saint-Cyr-sur-Loire</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Horaires</h3>
+                        <p>Mardi - Vendredi : 9h - 19h<br>Samedi : 9h - 17h</p>
+                    </div>
+                    <div class="info-block">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/p/AINOA-Coiffure-Onglerie-100053444964982/" target="_blank" rel="noopener noreferrer" class="social-icon">Facebook</a>
+                            <a href="https://www.instagram.com/ainoa.coiffure37/#" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
+                            <a href="http://planity.com/ainoa-37540-saint-cyr-sur-loire" target="_blank" rel="noopener noreferrer" class="social-icon">Planity</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOUVEAU : Conteneur pour la carte Google Maps -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- Fin du conteneur pour la carte -->
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2024 Ainoa Coiffure - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+
+        function closeMenu() {
+            mobileNav.classList.remove('is-active');
+            mobileNavToggle.classList.remove('is-active');
+        }
+
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('is-active');
+            mobileNavToggle.classList.toggle('is-active');
+        });
+
+        // Ferme le menu quand on clique sur un lien
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+
+</body>
+</html>
