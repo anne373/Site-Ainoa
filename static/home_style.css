@@ -129,41 +129,104 @@ section {
 
 /* ======================= Section Héros ======================= */
 #hero {
-    background-color: var(--hero-bg);
-    padding: 60px 0;
-    text-align: center;
-    margin-top: 80px; /* Dégage l'espace pour le header fixe */
+    position: relative; /* Indispensable pour superposer le contenu */
+    width: 100%;
+    height: 90vh; /* Le carrousel prend 90% de la hauteur de l'écran */
+    margin-top: 80px;
+    overflow: hidden; /* Cache les parties des slides qui dépassent */
+    background-color: var(--dark-text); /* Couleur de fond pendant le chargement */
 }
 
-.hero-image-container {
-    margin-bottom: 40px;
+.hero-carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.hero-image-container img {
-    max-width: 640px;
-    width: 90%;
-    height: auto;
+/* Ajoute un léger voile sombre sur les images pour que le texte blanc soit lisible */
+.hero-carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.carousel-slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease-in-out; /* Animation de glissement */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Chaque slide prend 100% de la largeur */
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image remplit l'espace sans se déformer */
     display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+/* Positionnement du contenu textuel par-dessus le carrousel */
 #hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Au-dessus du carrousel et du voile */
     color: var(--white);
-    padding: 0 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Ombre portée pour la lisibilité */
 }
 
-#hero h1 {
-    font-size: 3rem;
-    color: var(--white);
-    margin-bottom: 20px;
+/* Styles des points de navigation */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
 }
 
-#hero p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 40px;
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: var(--white);
+}
+
+/* Ajustements pour mobile */
+@media (max-width: 768px) {
+    #hero {
+        height: 70vh; /* Un peu moins haut sur mobile */
+        margin-top: 70px;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+
+    #hero p {
+        font-size: 1.1rem;
+    }
 }
 
 /* ======================= Styles NOUVEAU: Section Head SPA ======================= */
