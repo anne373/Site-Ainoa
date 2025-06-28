@@ -128,42 +128,39 @@ section {
 }
 
 /* ======================= Section Héros ======================= */
+/* --- 1. Le conteneur principal de la section --- */
 #hero {
-    position: relative; /* Indispensable pour superposer le contenu */
-    width: 100%;
-    height: 90vh; /* Le carrousel prend 90% de la hauteur de l'écran */
+    /* MODIFIÉ : On retire la hauteur fixe pour que la section s'adapte à son contenu (carrousel + texte) */
+    height: auto; 
     margin-top: 80px;
-    overflow: hidden; /* Cache les parties des slides qui dépassent */
-    background-color: var(--dark-text); /* Couleur de fond pendant le chargement */
+    padding-bottom: 60px; /* Ajoute de l'espace en bas de la section, après le texte */
+    background-color: var(--white); /* Le fond de la section est maintenant blanc */
+    /* SUPPRIMÉ : position: relative; n'est plus nécessaire ici */
 }
 
+/* --- 2. Le conteneur du carrousel --- */
 .hero-carousel-container {
     width: 100%;
-    height: 100%;
-    position: relative;
+    /* MODIFIÉ : On donne une hauteur fixe au carrousel, par exemple 65% de la hauteur de l'écran */
+    height: 65vh; 
+    position: relative; /* Gardé pour les points de navigation */
+    background-color: var(--dark-text); /* Fond sombre visible pendant le chargement des images */
 }
 
-/* Ajoute un léger voile sombre sur les images pour que le texte blanc soit lisible */
+/* SUPPRIMÉ : Le voile sombre n'est plus nécessaire car le texte n'est plus dessus */
 .hero-carousel-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 2;
+    display: none; /* On le désactive simplement */
 }
 
 .carousel-slides {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.7s ease-in-out; /* Animation de glissement */
+    transition: transform 0.7s ease-in-out;
 }
 
 .carousel-slide {
-    flex: 0 0 100%; /* Chaque slide prend 100% de la largeur */
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
 }
@@ -171,25 +168,36 @@ section {
 .carousel-slide img {
     width: 100%;
     height: 100%;
+    /* On garde 'contain' comme vous le souhaitiez */
     object-fit: contain; 
     display: block;
 }
 
-/* Positionnement du contenu textuel par-dessus le carrousel */
+/* --- 3. Le bloc de texte sous le carrousel --- */
 #hero .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10; /* Au-dessus du carrousel et du voile */
-    color: var(--white);
+    /* SUPPRIMÉ : On retire toute la partie qui superposait le texte */
+    /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; */
+    
+    /* NOUVEAU : Styles pour que le texte soit centré sous le carrousel */
+    padding: 60px 20px 0 20px; /* Espace au-dessus (pour le séparer du carrousel) et sur les côtés */
     text-align: center;
-    width: 90%;
-    max-width: 800px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Ombre portée pour la lisibilité */
+    max-width: 800px; /* Limite la largeur du texte pour une meilleure lecture */
+    margin: 0 auto; /* Centre le bloc de contenu */
 }
 
-/* Styles des points de navigation */
+/* NOUVEAU : On redonne aux textes leurs couleurs sombres car le fond est blanc */
+#hero h1 {
+    color: var(--dark-text);
+    text-shadow: none; /* On retire l'ombre portée inutile */
+}
+
+#hero p {
+    color: var(--gray-text);
+    text-shadow: none; /* On retire l'ombre portée inutile */
+}
+
+
+/* --- 4. Les points de navigation (pas de changement majeur) --- */
 .carousel-dots {
     position: absolute;
     bottom: 20px;
@@ -213,13 +221,23 @@ section {
     background-color: var(--white);
 }
 
-/* Ajustements pour mobile */
+
+/* --- 5. Ajustements pour mobile --- */
 @media (max-width: 768px) {
+    .hero-carousel-container {
+        /* On réduit la hauteur du carrousel sur mobile pour laisser plus de place au texte */
+        height: 50vh; 
+    }
+    
     #hero {
-        height: 70vh; /* Un peu moins haut sur mobile */
         margin-top: 70px;
+        padding-bottom: 40px;
     }
 
+    #hero .hero-content {
+        padding: 40px 20px 0 20px;
+    }
+    
     #hero h1 {
         font-size: 2.2rem;
     }
@@ -228,7 +246,6 @@ section {
         font-size: 1.1rem;
     }
 }
-
 /* ======================= Styles NOUVEAU: Section Head SPA ======================= */
 .head-spa-section {
     padding: 60px 0; /* Ajuste le padding si nécessaire */
