@@ -132,7 +132,7 @@ section {
 #hero {
     /* MODIFIÉ : On retire la hauteur fixe pour que la section s'adapte à son contenu (carrousel + texte) */
     height: auto; 
-    margin-top: 5px;
+    margin-top: 0px;
     padding-bottom: 60px; /* Ajoute de l'espace en bas de la section, après le texte */
     background-color: var(--white); /* Le fond de la section est maintenant blanc */
     /* SUPPRIMÉ : position: relative; n'est plus nécessaire ici */
@@ -230,7 +230,7 @@ section {
     }
     
     #hero {
-        margin-top: 5px;
+        margin-top: 0px;
         padding-bottom: 40px;
     }
 
@@ -331,7 +331,7 @@ section {
     section { padding: 60px 0; }
 
     .main-header { height: 70px; }
-    #hero { margin-top: 70px; }
+    #hero { margin-top: 0px; }
 
     .main-nav { display: none; }
 
