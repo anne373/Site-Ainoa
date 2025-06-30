@@ -106,7 +106,13 @@ body {
     height: auto;
     object-fit: contain;
 }
-
+/* AJOUT : Pour que le lien sur le logo se comporte bien visuellement */
+.logo a {
+    display: block; /* S'assure que le lien prend bien toute la place de l'image */
+    line-height: 0; /* Évite certains espacements parasites sous l'image */
+    text-decoration: none; /* Retire le soulignement s'il y en a un */
+    border: none; /* Retire la bordure s'il y en a une */
+}
 /* #Styles-Sous-titre-Entete */
 .subtitle {
     color: var(--text-dark);
