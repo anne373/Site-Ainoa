@@ -141,7 +141,7 @@ section {
 /* --- 2. Le conteneur du carrousel --- */
 .hero-carousel-container {
     width: 100%;
-    height: 65vh; 
+    height: 55vh; 
     position: relative;
     background-color: var(--dark-text);
     overflow: hidden; /* <--- C'EST LA LIGNE MAGIQUE QUI CORRIGE TOUT */
@@ -226,7 +226,7 @@ section {
 @media (max-width: 768px) {
     .hero-carousel-container {
         /* On réduit la hauteur du carrousel sur mobile pour laisser plus de place au texte */
-        height: 50vh; 
+        height: 45vh; 
     }
     
     #hero {
