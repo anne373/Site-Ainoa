@@ -138,12 +138,13 @@ section {
 }
 
 /* --- 2. Le conteneur du carrousel --- */
+/* --- 2. Le conteneur du carrousel --- */
 .hero-carousel-container {
     width: 100%;
-    /* MODIFIÉ : On donne une hauteur fixe au carrousel, par exemple 65% de la hauteur de l'écran */
     height: 65vh; 
-    position: relative; /* Gardé pour les points de navigation */
-    background-color: var(--dark-text); /* Fond sombre visible pendant le chargement des images */
+    position: relative;
+    background-color: var(--dark-text);
+    overflow: hidden; /* <--- C'EST LA LIGNE MAGIQUE QUI CORRIGE TOUT */
 }
 
 /* SUPPRIMÉ : Le voile sombre n'est plus nécessaire car le texte n'est plus dessus */
