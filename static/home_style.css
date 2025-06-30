@@ -83,7 +83,6 @@ section {
 /* ======================= Entête et Navigation ======================= */
 .main-header {
     background-color: var(--white);
-    padding: 0 5%;
     position: fixed;
     top: 0;
     left: 0;
