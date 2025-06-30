@@ -406,3 +406,29 @@ section {
         flex: 1; /* Le texte prend également l'espace disponible */
     }
 }
+/* ======================= CORRECTIF POUR LE HERO SUR MOBILE ======================= */
+@media (max-width: 768px) {
+    #hero {
+        /* On s'assure que le conteneur est en mode Flexbox */
+        display: flex; 
+        
+        /* C'est la ligne la plus importante : 
+           Elle force les éléments enfants (carousel + texte) à s'empiler verticalement */
+        flex-direction: column; 
+        
+        /* Optionnel mais recommandé : On s'assure que tout est bien centré */
+        align-items: center; 
+    }
+
+    #hero .hero-carousel-container {
+        /* On s'assure que le carrousel prend toute la largeur disponible */
+        width: 100%;
+    }
+
+    #hero .hero-content {
+        /* On s'assure que le bloc de texte prend aussi toute la largeur */
+        width: 100%;
+        /* On peut réduire un peu le padding pour un meilleur espacement */
+        padding: 40px 20px 0 20px;
+    }
+}
