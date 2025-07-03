@@ -2,31 +2,13 @@
    TABLE DES MATIÈRES
    ==========================================================================
    1. VARIABLES ET STYLES GÉNÉRAUX
-      - Couleurs, polices, etc.
-      - Reset de base et styles du body
-      - Styles des conteneurs, titres et boutons
-
    2. EN-TÊTE ET NAVIGATION PRINCIPALE (Desktop)
-      - Header fixe, logo, menu de navigation
-
    3. SECTION HÉROS (CARROUSEL)
-      - Conteneur du carrousel et ses diapositives
-
    4. SECTION HEAD SPA
-      - Mise en page de l'image et du texte
-
    5. SECTION GALERIE
-      - Grille de photos responsive
-
    6. SECTION CONTACT & CARTE
-      - Blocs d'information, liens sociaux, carte Google Maps
-
    7. PIED DE PAGE (Footer)
-      - Style du bas de page
-
    8. RESPONSIVE DESIGN (Pour les petits écrans / Mobiles)
-      - Styles qui s'appliquent uniquement sur les appareils mobiles
-      - Transformation du menu en "hamburger"
    ========================================================================== */
 
 
@@ -34,18 +16,16 @@
    1. VARIABLES ET STYLES GÉNÉRAUX
    ========================================================================== */
 
-/* -- :root permet de déclarer des variables CSS réutilisables dans tout le fichier. -- */
 :root {
     --primary-orange: rgb(225, 94, 19);
     --white: #ffffff;
     --light-gray: #f8f9fa;
     --dark-text: #343a40;
     --gray-text: #6c757d;
-    --font-heading: 'Playfair Display', serif; /* Police pour les grands titres */
-    --font-body: 'Montserrat', sans-serif;    /* Police pour le texte courant */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
 }
 
-/* -- Reset CSS de base pour un comportement cohérent sur tous les navigateurs. -- */
 * {
     margin: 0;
     padding: 0;
@@ -53,25 +33,23 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Permet un défilement fluide lors d'un clic sur une ancre (ex: #contact) */
-    scroll-padding-top: 80px; /* Ajoute un espace en haut lors du défilement pour ne pas cacher le contenu sous le header fixe */
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
     font-family: var(--font-body);
     color: var(--dark-text);
-    line-height: 1.7; /* Hauteur de ligne pour une meilleure lisibilité */
+    line-height: 1.7;
     background-color: var(--white);
 }
 
-/* -- Classe utilitaire pour centrer le contenu et limiter sa largeur. -- */
 .container {
     width: 90%;
     max-width: 1140px;
-    margin: 0 auto; /* Centre le conteneur horizontalement */
+    margin: 0 auto;
 }
 
-/* -- Styles de base pour la typographie. -- */
 h1, h2 {
     font-family: var(--font-heading);
     color: var(--dark-text);
@@ -93,12 +71,10 @@ p.subtitle {
     font-weight: 300;
 }
 
-/* -- Style par défaut de toutes les grandes sections de la page. -- */
 section {
-    padding: 10px 0;
+    padding: 80px 0;
 }
 
-/* -- Style de base des boutons. -- */
 .btn {
     text-decoration: none;
     padding: 15px 30px;
@@ -126,20 +102,19 @@ section {
 
 .main-header {
     background-color: var(--white);
-    position: fixed; /* Le header reste fixé en haut de la page au défilement */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* S'assure que le header est au-dessus des autres éléments */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Ombre légère */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     height: 80px;
 }
 
-/* -- Utilisation de Flexbox pour aligner le logo et la navigation. -- */
 .main-header .container {
     display: flex;
-    justify-content: space-between; /* Espace maximal entre le logo et la nav */
-    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
@@ -151,7 +126,7 @@ section {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 30px; /* Espace entre les liens du menu */
+    gap: 30px;
 }
 
 .main-nav a {
@@ -165,7 +140,6 @@ section {
     color: var(--primary-orange);
 }
 
-/* -- On cache les éléments de navigation mobile par défaut sur grand écran. -- */
 .mobile-nav-toggle, .mobile-nav {
     display: none;
 }
@@ -176,53 +150,52 @@ section {
    ========================================================================== */
 
 #hero {
-    margin-top: 10px; /* Espace pour ne pas être caché par le header fixe */
-    padding-bottom: 10px;
+    margin-top: 80px;
+    padding-bottom: 60px;
 }
 
 .hero-carousel-container {
     width: 100%;
-    height: 55vh; /* Hauteur relative à la hauteur de l'écran (55%) */
-    position: relative; /* Nécessaire pour positionner les points de navigation */
-    background-color: var(--dark-text); /* Fond si les images ne chargent pas */
-    overflow: hidden; /* Cache les diapositives qui ne sont pas visibles */
+    height: 55vh;
+    position: relative;
+    background-color: var(--dark-text);
+    overflow: hidden;
 }
 
 .carousel-slides {
-    display: flex; /* Aligne les slides horizontalement */
+    display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.7s ease-in-out; /* Animation de transition */
+    transition: transform 0.7s ease-in-out;
 }
 
 .carousel-slide {
-    flex: 0 0 100%; /* Chaque slide prend 100% de la largeur */
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 10px; /* Espace de 10px pour créer un cadre */
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* L'image est entièrement visible, sans être rognée */
+    /* LA CORRECTION EST ICI 👇 */
+    object-fit: contain; /* Garantit que l'image entière est visible, sans être rognée. */
     display: block;
 }
 
-/* -- Contenu textuel situé sous le carrousel. -- */
 #hero .hero-content {
-    padding: 10px 20px 0 20px;
+    padding: 60px 20px 0 20px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* -- Points de navigation du carrousel. -- */
 .carousel-dots {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Centrage horizontal parfait */
+    transform: translateX(-50%);
     display: flex;
     gap: 12px;
     z-index: 10;
@@ -248,29 +221,28 @@ section {
    ========================================================================== */
 
 .head-spa-section {
-    padding: 10px 0;
+    padding: 60px 0;
 }
 
-/* -- Mise en page principale de la section. -- */
 .head-spa-content {
     display: flex;
-    flex-direction: column; /* Force la disposition verticale (image en haut, texte en bas) */
-    align-items: center;    /* Centre les éléments horizontalement */
-    gap: 40px;              /* Espace entre l'image et le bloc de texte */
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .head-spa-image {
     width: 100%;
-    max-width: 800px; /* L'image ne dépassera jamais 800px de large */
-    line-height: 0;   /* Astuce pour enlever un possible espace sous l'image */
+    max-width: 800px;
+    line-height: 0;
 }
 
 .head-spa-image img {
-    width: 100%;       /* L'image prend 100% de la largeur de son conteneur */
-    height: auto;      /* La hauteur s'ajuste pour garder les proportions. C'est la clé du bon redimensionnement ! */
+    width: 100%;
+    height: auto;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    display: block;    /* Assure un bon comportement de l'image */
+    display: block;
 }
 
 .head-spa-text {
@@ -287,16 +259,14 @@ section {
     background-color: var(--light-gray);
 }
 
-/* -- Grille responsive qui s'adapte automatiquement. -- */
 .photo-grid {
     display: grid;
-    /* Crée autant de colonnes que possible de 280px minimum. */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
 .photo-item {
-    overflow: hidden; /* Cache le débordement de l'image lors du zoom au survol */
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
@@ -304,13 +274,13 @@ section {
 .photo-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* L'image remplit l'espace en étant rognée si nécessaire */
+    object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
 }
 
 .photo-item:hover img {
-    transform: scale(1.05); /* Effet de zoom au survol */
+    transform: scale(1.05);
 }
 
 
@@ -319,13 +289,13 @@ section {
    ========================================================================== */
 
 #contact {
-    padding-bottom: 0; /* On retire le padding du bas pour coller la carte */
+    padding-bottom: 0;
 }
 
 .contact-info {
     display: flex;
-    justify-content: space-around; /* Espace équitable entre les blocs d'info */
-    flex-wrap: wrap; /* Les blocs passent à la ligne sur petit écran */
+    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 30px;
     text-align: center;
 }
@@ -358,7 +328,6 @@ section {
     background-color: var(--primary-orange);
 }
 
-/* -- Conteneur de la carte Google Maps. -- */
 .map-container {
     margin-top: 80px;
     height: 450px;
@@ -390,13 +359,11 @@ section {
    8. RESPONSIVE DESIGN (Pour les petits écrans / Mobiles)
    ========================================================================== */
 
-/* -- Ces styles s'appliquent uniquement si la largeur de l'écran est de 767px ou moins. -- */
 @media (max-width: 767px) {
     .main-header { height: 70px; }
-    #hero { margin-top: 10px; }
-    html { scroll-padding-top: 10px; }
+    #hero { margin-top: 70px; }
+    html { scroll-padding-top: 70px; }
 
-    /* -- On cache le menu desktop et on affiche le bouton "hamburger". -- */
     .main-nav {
         display: none;
     }
@@ -407,11 +374,10 @@ section {
         cursor: pointer;
         width: 30px;
         height: 30px;
-        position: relative; /* Pour positionner les barres du hamburger */
-        z-index: 1001; /* Doit être au-dessus du menu qui va apparaître */
+        position: relative;
+        z-index: 1001;
     }
 
-    /* -- Style des 3 barres du "hamburger". -- */
     .mobile-nav-toggle span {
         display: block;
         width: 100%;
@@ -425,37 +391,34 @@ section {
     .mobile-nav-toggle span:nth-child(2) { top: 14px; }
     .mobile-nav-toggle span:nth-child(3) { bottom: 5px; }
 
-    /* -- Animation du "hamburger" qui se transforme en croix. -- */
     .mobile-nav-toggle.is-active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .mobile-nav-toggle.is-active span:nth-child(2) { opacity: 0; }
     .mobile-nav-toggle.is-active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-    /* -- Style du menu qui apparaît. -- */
     .mobile-nav {
         display: flex;
         position: fixed;
-        top: 70px; /* Commence sous le header */
+        top: 70px;
         left: 0;
         width: 100%;
-        height: calc(100vh - 70px); /* Prend toute la hauteur restante */
+        height: calc(100vh - 70px);
         background-color: var(--white);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transform: translateX(100%); /* Caché sur la droite par défaut */
+        transform: translateX(100%);
         transition: transform 0.4s ease-in-out;
         z-index: 1000;
     }
 
     .mobile-nav.is-active {
-        transform: translateX(0); /* Le menu devient visible en revenant à sa position */
+        transform: translateX(0);
     }
 
     .mobile-nav ul { list-style: none; text-align: center; }
     .mobile-nav li { margin-bottom: 30px; }
     .mobile-nav a { font-size: 1.5rem; }
 
-    /* -- Autres ajustements pour mobile. -- */
     .hero-carousel-container { height: 45vh; }
     .contact-info { flex-direction: column; }
     .map-container { height: 350px; margin-top: 60px; }
