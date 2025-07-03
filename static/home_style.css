@@ -95,7 +95,7 @@ p.subtitle {
 
 /* -- Style par défaut de toutes les grandes sections de la page. -- */
 section {
-    padding: 80px 0;
+    padding: 10px 0;
 }
 
 /* -- Style de base des boutons. -- */
@@ -176,8 +176,8 @@ section {
    ========================================================================== */
 
 #hero {
-    margin-top: 80px; /* Espace pour ne pas être caché par le header fixe */
-    padding-bottom: 60px;
+    margin-top: 10px; /* Espace pour ne pas être caché par le header fixe */
+    padding-bottom: 10px;
 }
 
 .hero-carousel-container {
@@ -210,7 +210,7 @@ section {
 
 /* -- Contenu textuel situé sous le carrousel. -- */
 #hero .hero-content {
-    padding: 60px 20px 0 20px;
+    padding: 10px 20px 0 20px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -247,7 +247,7 @@ section {
    ========================================================================== */
 
 .head-spa-section {
-    padding: 60px 0;
+    padding: 10px 0;
 }
 
 /* -- Mise en page principale de la section. -- */
@@ -392,8 +392,8 @@ section {
 /* -- Ces styles s'appliquent uniquement si la largeur de l'écran est de 767px ou moins. -- */
 @media (max-width: 767px) {
     .main-header { height: 70px; }
-    #hero { margin-top: 70px; }
-    html { scroll-padding-top: 70px; }
+    #hero { margin-top: 10px; }
+    html { scroll-padding-top: 10px; }
 
     /* -- On cache le menu desktop et on affiche le bouton "hamburger". -- */
     .main-nav {
