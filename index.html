@@ -51,6 +51,7 @@
             <!-- Conteneur du carrousel -->
             <div class="hero-carousel-container">
                 <div class="carousel-slides">
+                    <!-- Chaque div est une diapositive. Mettez vos propres images ici ! -->
                     <div class="carousel-slide">
                         <img src="images/hero-carousel-1.jpg" alt="Ambiance du salon Ainoa Coiffure">
                     </div>
@@ -75,7 +76,7 @@
         </section>
 
         <!-- ======================= Section À Propos ======================= -->
-        <section id="about">
+      <!--<section id="about">
             <div class="container">
                 <h2>Une expérience unique pour vos cheveux</h2>
                 <p class="subtitle">
@@ -84,49 +85,41 @@
             </div>
         </section>
 
-        <!-- ======================= Section Head SPA ======================= -->
-        <section id="head-spa" class="head-spa-section">
-            <div class="container">
-                <h2>Découvrez notre Head SPA</h2>
-                <p class="subtitle">
-                    Une évasion sensorielle unique pour le cuir chevelu et l'esprit. Laissez-vous transporter par nos rituels de soin inspirés du Japon.
-                </p>
-                <div class="head-spa-content">
-                    <div class="head-spa-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMSkn1Mqj8u2D31fugaxvl1dAQ3Ce0JUvBcgK0AXu8SuACAZM8gxaKfZuVEFQZW2q3rmfRwb912nzYgkI0kIgKWQD0ifc-xCnuBcr5ezSyGi5pOjyZAWVuG0isHJLJ-Vlaqokp61aItTimWU2lpS63T=w800" alt="Soin relaxant du cuir chevelu au salon Ainoa">
-                    </div>
-                    <div class="head-spa-text">
-                        <h3>Un Voyage de Bien-Être Absolu</h3>
-                        <p>Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de lâcher-prise.</p>
-                        <a href="templates/head-spa.html" class="btn btn-primary">Découvrir les Soins</a>
-                    </div>
-                </div>
+<!-- ======================= NOUVEAU: Section Head SPA ======================= -->
+<section id="head-spa" class="head-spa-section">
+    <div class="container">
+        <h2>Découvrez notre Head SPA</h2>
+        <p class="subtitle">
+            Une évasion sensorielle unique pour le cuir chevelu et l'esprit. Laissez-vous transporter par nos rituels de soin inspirés du Japon.
+        </p>
+        <div class="head-spa-content">
+            <div class="head-spa-image">
+                <!-- 
+                  LA MODIFICATION LA PLUS IMPORTANTE EST ICI :
+                  J'ai ajouté "=w800" à la fin de l'URL. 
+                  Cela demande à Google de nous envoyer une version de l'image de 800px de large, 
+                  en conservant ses proportions originales (qui sont larges).
+                -->
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMSkn1Mqj8u2D31fugaxvl1dAQ3Ce0JUvBcgK0AXu8SuACAZM8gxaKfZuVEFQZW2q3rmfRwb912nzYgkI0kIgKWQD0ifc-xCnuBcr5ezSyGi5pOjyZAWVuG0isHJLJ-Vlaqokp61aItTimWU2lpS63T=w800" alt="Soin relaxant du cuir chevelu au salon Ainoa">
             </div>
-        </section>
+            <div class="head-spa-text">
+                <h3>Un Voyage de Bien-Être Absolu</h3>
+                <p>Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de lâcher-prise.</p>
+                <a href="templates/head-spa.html" class="btn btn-primary">Découvrir les Soins</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======================= Fin de la section Head SPA ======================= -->
+
 
         <!-- ======================= Section Galerie Photos ======================= -->
         <section id="gallery">
             <div class="container">
                 <h2>Nos Créations</h2>
                 <p class="subtitle">Découvrez quelques exemples de notre travail et laissez-vous inspirer.</p>
-                
-                <div class="gallery-carousel-container">
-                    <div class="gallery-carousel-track">
-                        <!-- Vos images de galerie -->
-                        <div class="gallery-carousel-slide">
-                            <img src="images/coup 1.jpg" alt="Création coiffure 1">
-                        </div>
-                        <div class="gallery-carousel-slide">
-                            <img src="images/coup 2.jpg" alt="Création coiffure 2">
-                        </div>
-                        <div class="gallery-carousel-slide">
-                            <img src="images/coup 3.jpg" alt="Création coiffure 3">
-                        </div>
-                        <div class="gallery-carousel-slide">
-                            <img src="images/coup 3.jpg" alt="Création coiffure 4">
-                        </div>
-                        <!-- Ajoutez autant d'images que nécessaire (4 à 8) -->
-                    </div>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="images/création1.png" alt="Création coiffure 1"></div>
                 </div>
             </div>
         </section>
@@ -138,13 +131,12 @@
                 <p class="subtitle">Retrouvez-nous au salon ou sur les réseaux sociaux.</p>
                 <div class="contact-info">
                     <div class="info-block">
-                        <h3>Réseaux sociaux</h3>
+                        <h3></h3>
                         <div class="social-links">
                             <a href="https://www.facebook.com/p/AINOA-Coiffure-Onglerie-100053444964982/" target="_blank" rel="noopener noreferrer" class="social-icon">Facebook</a>
                             <a href="https://www.instagram.com/ainoa.coiffure37/#" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
                             <a href="http://planity.com/ainoa-37540-saint-cyr-sur-loire" target="_blank" rel="noopener noreferrer" class="social-icon">Planity</a>
                         </div>
-                    </div>
                     <div class="info-block">
                         <h3>Adresse</h3>
                         <p>44 Bd Charles de Gaulle<br>37540 Saint-Cyr-sur-Loire</p>
@@ -160,10 +152,12 @@
                 </div>
             </div>
 
-            <!-- Conteneur pour la carte Google Maps -->
+            <!-- NOUVEAU : Conteneur pour la carte Google Maps -->
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <!-- Fin du conteneur pour la carte -->
+
         </section>
     </main>
 
@@ -172,7 +166,6 @@
     </footer>
 
     <script>
-        // Menu mobile
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
         const mobileNav = document.querySelector('.mobile-nav');
         const navLinks = document.querySelectorAll('.mobile-nav a');
@@ -187,11 +180,12 @@
             mobileNavToggle.classList.toggle('is-active');
         });
 
+        // Ferme le menu quand on clique sur un lien
         navLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
         });
-
-        // Carrousel héros
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slidesContainer = document.querySelector('.carousel-slides');
             const slides = document.querySelectorAll('.carousel-slide');
@@ -216,6 +210,7 @@
 
             const dots = document.querySelectorAll('.dot');
 
+            // Fonction pour aller à une diapositive spécifique
             function goToSlide(index) {
                 slidesContainer.style.transform = `translateX(-${index * 100}%)`;
                 dots.forEach(d => d.classList.remove('active'));
@@ -223,146 +218,26 @@
                 currentIndex = index;
             }
 
+            // Fonction pour la diapositive suivante
             function nextSlide() {
                 const nextIndex = (currentIndex + 1) % slides.length;
                 goToSlide(nextIndex);
             }
 
+            // Démarrer le défilement automatique
             function startInterval() {
-                slideInterval = setInterval(nextSlide, 5000);
+                slideInterval = setInterval(nextSlide, 5000); // Change de slide toutes les 5 secondes
             }
             
+            // Redémarrer l'intervalle (si l'utilisateur interagit)
             function resetInterval() {
                 clearInterval(slideInterval);
                 startInterval();
             }
 
+            // Initialiser le carrousel
             goToSlide(0);
             startInterval();
-        });
-
-        // Carrousel galerie
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.gallery-carousel-track');
-            const slides = Array.from(document.querySelectorAll('.gallery-carousel-slide'));
-            const slideCount = slides.length;
-            
-            if (slideCount === 0) return;
-            
-            // Duplique les slides pour l'effet infini
-            const clonedSlides = slides.map(slide => slide.cloneNode(true));
-            clonedSlides.forEach(slide => track.appendChild(slide));
-            
-            let currentIndex = 0;
-            let isDragging = false;
-            let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            let animationID;
-            
-            // Initialisation
-            updateSlidePosition();
-            startAutoSlide();
-            
-            // Gestion du défilement automatique
-            function startAutoSlide() {
-                setInterval(() => {
-                    if (!isDragging) {
-                        currentIndex = (currentIndex + 1) % slideCount;
-                        updateSlidePosition();
-                    }
-                }, 3000);
-            }
-            
-            // Mise à jour de la position
-            function updateSlidePosition() {
-                // Met à jour les classes pour l'effet de flou
-                slides.forEach((slide, index) => {
-                    slide.classList.remove('active', 'prev', 'next');
-                    
-                    if (index === currentIndex) {
-                        slide.classList.add('active');
-                    } else if (index === (currentIndex - 1 + slideCount) % slideCount) {
-                        slide.classList.add('prev');
-                    } else if (index === (currentIndex + 1) % slideCount) {
-                        slide.classList.add('next');
-                    }
-                });
-                
-                // Animation fluide
-                track.style.transition = 'transform 0.7s ease';
-                track.style.transform = `translateX(-${currentIndex * 33.33}%)`;
-                
-                // Réinitialise la position pour l'effet infini
-                setTimeout(() => {
-                    if (currentIndex >= slideCount) {
-                        track.style.transition = 'none';
-                        currentIndex = 0;
-                        track.style.transform = `translateX(0)`;
-                    }
-                }, 700);
-            }
-            
-            // Gestion du glisser-déposer
-            slides.forEach((slide, index) => {
-                // Événements tactiles
-                slide.addEventListener('touchstart', touchStart(index));
-                slide.addEventListener('touchend', touchEnd);
-                slide.addEventListener('touchmove', touchMove);
-                
-                // Événements souris
-                slide.addEventListener('mousedown', touchStart(index));
-                slide.addEventListener('mouseup', touchEnd);
-                slide.addEventListener('mouseleave', touchEnd);
-                slide.addEventListener('mousemove', touchMove);
-            });
-            
-            function touchStart(index) {
-                return function(event) {
-                    isDragging = true;
-                    startPos = getPositionX(event);
-                    currentIndex = index;
-                    track.style.transition = 'none';
-                    
-                    // Animation pour le mouvement fluide
-                    animationID = requestAnimationFrame(animation);
-                };
-            }
-            
-            function touchEnd() {
-                if (!isDragging) return;
-                
-                isDragging = false;
-                cancelAnimationFrame(animationID);
-                
-                const movedBy = currentTranslate - prevTranslate;
-                const moveThreshold = window.innerWidth <= 767 ? 50 : 100;
-                
-                if (movedBy < -moveThreshold && currentIndex < slideCount - 1) {
-                    currentIndex += 1;
-                }
-                
-                if (movedBy > moveThreshold && currentIndex > 0) {
-                    currentIndex -= 1;
-                }
-                
-                updateSlidePosition();
-            }
-            
-            function touchMove(event) {
-                if (!isDragging) return;
-                const currentPosition = getPositionX(event);
-                currentTranslate = prevTranslate + currentPosition - startPos;
-            }
-            
-            function animation() {
-                track.style.transform = `translateX(${currentTranslate}px)`;
-                animationID = requestAnimationFrame(animation);
-            }
-            
-            function getPositionX(event) {
-                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-            }
         });
     </script>
 </body>
