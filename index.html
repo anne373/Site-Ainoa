@@ -5,113 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ainoa Coiffure - Votre Salon de Coiffure</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./static/home_style.css">
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <!-- ======================= Entête et Navigation ======================= -->
     <header class="main-header">
         <div class="container">
+
+            <!-- Logo -->
             <a href="#" class="logo">
-                <img src="images/logo-ainoa.png" alt="Logo Ainoa Coiffure">
+                <img src="assets/images/logo-ainoa.png" alt="Logo Ainoa Coiffure">
             </a>
 
-            <nav class="main-nav">
+            <!-- Navigation desktop -->
+            <nav class="main-nav" aria-label="Navigation principale">
                 <ul>
                     <li><a href="#about">Le Salon</a></li>
                     <li><a href="#gallery">Nos Créations</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <!-- Bouton RDV visible sur desktop sans scroller -->
+                    <li>
+                        <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire"
+                           class="btn btn-primary btn-header"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Prendre RDV
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
-            <button class="mobile-nav-toggle" aria-label="Ouvrir le menu">
+            <!-- Bouton hamburger (mobile uniquement) -->
+            <button class="mobile-nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
         </div>
     </header>
 
-    <nav class="mobile-nav">
+    <!-- Menu de navigation mobile (plein écran) -->
+    <nav class="mobile-nav" aria-label="Navigation mobile">
         <ul>
             <li><a href="#about">Le Salon</a></li>
             <li><a href="#gallery">Nos Créations</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Rendez-vous</a></li>
+            <li>
+                <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Prendre Rendez-vous
+                </a>
+            </li>
         </ul>
     </nav>
 
     <main>
-        <!-- ======================= Section Héros ======================= -->
+
+        <!-- ======================= Section Héros (Carrousel) ======================= -->
         <section id="hero">
-            <!-- Conteneur du carrousel -->
+
+            <!-- Carrousel d'images -->
             <div class="hero-carousel-container">
                 <div class="carousel-slides">
-                    <!-- Chaque div est une diapositive. Mettez vos propres images ici ! -->
                     <div class="carousel-slide">
-                        <img src="images/hero-carousel-1.jpg" alt="Ambiance du salon Ainoa Coiffure">
+                        <img src="assets/images/carousel/image1.jpg" alt="Salon Ainoa Coiffure 1">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/hero-carousel-2.png" alt="Création coiffure par Ainoa">
+                        <img src="assets/images/carousel/image2.png" alt="Salon Ainoa Coiffure 2">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/hero-carousel-3.png" alt="Détail d'un soin capillaire">
+                        <img src="assets/images/carousel/image3.png" alt="Salon Ainoa Coiffure 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/carousel/image4.png" alt="Salon Ainoa Coiffure 4">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/carousel/image5.png" alt="Salon Ainoa Coiffure 5">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/carousel/image6.png" alt="Salon Ainoa Coiffure 6">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/carousel/image7.png" alt="Salon Ainoa Coiffure 7">
                     </div>
                 </div>
-        
-                <!-- Points de navigation -->
-                <div class="carousel-dots"></div>
+                <!-- Points de navigation (générés par JS) -->
+                <div class="carousel-dots" aria-hidden="true"></div>
             </div>
-        
-            <!-- Contenu textuel superposé -->
+
+            <!-- Texte de bienvenue -->
             <div class="hero-content">
                 <h1>L'art de la coiffure, la passion du soin.</h1>
                 <p>Bienvenue chez Aïnoa Coiffure, où votre beauté est notre inspiration.</p>
-                <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Prendre Rendez-vous</a>
+                <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Prendre Rendez-vous
+                </a>
             </div>
+
         </section>
 
-        <!-- ======================= Section À Propos ======================= -->
-      <!--<section id="about">
+        <!-- ======================= Section À Propos (désactivée) ======================= -->
+        <!--
+        <section id="about">
             <div class="container">
                 <h2>Une expérience unique pour vos cheveux</h2>
                 <p class="subtitle">
-                    Chez Ainoa, nous croyons que chaque coupe est une œuvre d'art et chaque client une muse. Dans une atmosphère relaxante et chaleureuse, notre équipe d'experts passionnés met tout son savoir-faire à votre service pour révéler la beauté naturelle de vos cheveux. Nous utilisons des produits de haute qualité et des techniques innovantes pour un résultat qui dépasse vos attentes.
+                    Chez Ainoa, nous croyons que chaque coupe est une œuvre d'art et chaque client une muse.
+                    Dans une atmosphère relaxante et chaleureuse, notre équipe d'experts passionnés met tout son
+                    savoir-faire à votre service pour révéler la beauté naturelle de vos cheveux. Nous utilisons
+                    des produits de haute qualité et des techniques innovantes pour un résultat qui dépasse vos attentes.
                 </p>
             </div>
         </section>
+        -->
 
-<!-- ======================= NOUVEAU: Section Head SPA ======================= -->
-<section id="head-spa" class="head-spa-section">
-    <div class="container">
-        <h2>Découvrez notre Head SPA</h2>
-        <p class="subtitle">
-            Une évasion sensorielle unique pour le cuir chevelu et l'esprit. Laissez-vous transporter par nos rituels de soin inspirés du Japon.
-        </p>
-        <div class="head-spa-content">
-            <div class="head-spa-image">
-                <!-- 
-                  LA MODIFICATION LA PLUS IMPORTANTE EST ICI :
-                  J'ai ajouté "=w800" à la fin de l'URL. 
-                  Cela demande à Google de nous envoyer une version de l'image de 800px de large, 
-                  en conservant ses proportions originales (qui sont larges).
-                -->
-                <img src="https://lh3.googleusercontent.com/pw/AP1GczMSkn1Mqj8u2D31fugaxvl1dAQ3Ce0JUvBcgK0AXu8SuACAZM8gxaKfZuVEFQZW2q3rmfRwb912nzYgkI0kIgKWQD0ifc-xCnuBcr5ezSyGi5pOjyZAWVuG0isHJLJ-Vlaqokp61aItTimWU2lpS63T=w800" alt="Soin relaxant du cuir chevelu au salon Ainoa">
+        <!-- ======================= Section Head SPA ======================= -->
+        <section id="head-spa" class="head-spa-section">
+            <div class="container">
+                <h2>Découvrez notre Head SPA</h2>
+                <p class="subtitle">
+                    Une évasion sensorielle unique pour le cuir chevelu et l'esprit.
+                    Laissez-vous transporter par nos rituels de soin inspirés du Japon.
+                </p>
+                <div class="head-spa-content">
+                    <div class="head-spa-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMSkn1Mqj8u2D31fugaxvl1dAQ3Ce0JUvBcgK0AXu8SuACAZM8gxaKfZuVEFQZW2q3rmfRwb912nzYgkI0kIgKWQD0ifc-xCnuBcr5ezSyGi5pOjyZAWVuG0isHJLJ-Vlaqokp61aItTimWU2lpS63T=w800"
+                             alt="Soin relaxant du cuir chevelu au salon Ainoa">
+                    </div>
+                    <div class="head-spa-text">
+                        <h3>Un Voyage de Bien-Être Absolu</h3>
+                        <p>
+                            Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le
+                            cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce
+                            à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de
+                            lâcher-prise.
+                        </p>
+                        <a href="templates/head-spa.html" class="btn btn-primary">Découvrir les Soins</a>
+                    </div>
+                </div>
             </div>
-            <div class="head-spa-text">
-                <h3>Un Voyage de Bien-Être Absolu</h3>
-                <p>Le Head SPA est bien plus qu'un simple soin. C'est un rituel complet qui purifie le cuir chevelu, nourrit les cheveux en profondeur et procure une relaxation intense grâce à des techniques de modelage exclusives. Offrez-vous une parenthèse de détente et de lâcher-prise.</p>
-                <a href="templates/head-spa.html" class="btn btn-primary">Découvrir les Soins</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ======================= Fin de la section Head SPA ======================= -->
-
+        </section>
 
         <!-- ======================= Section Galerie Photos ======================= -->
         <section id="gallery">
@@ -119,7 +165,21 @@
                 <h2>Nos Créations</h2>
                 <p class="subtitle">Découvrez quelques exemples de notre travail et laissez-vous inspirer.</p>
                 <div class="photo-grid">
-                    <div class="photo-item"><img src="images/création1.png" alt="Création coiffure 1"></div>
+                    <div class="photo-item">
+                        <img src="assets/images/gallery/coupe-1.jpg" alt="Création coiffure 1">
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/images/gallery/coupe-2.jpg" alt="Création coiffure 2">
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/images/gallery/coupe-3.jpg" alt="Création coiffure 3">
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/images/gallery/coupe-4.jpg" alt="Création coiffure 4">
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/images/gallery/creation1.png" alt="Création coiffure 5">
+                    </div>
                 </div>
             </div>
         </section>
@@ -130,115 +190,76 @@
                 <h2>Rejoignez-nous</h2>
                 <p class="subtitle">Retrouvez-nous au salon ou sur les réseaux sociaux.</p>
                 <div class="contact-info">
+
+                    <!-- Réseaux sociaux -->
                     <div class="info-block">
-                        <h3></h3>
+                        <h3>Suivez-nous</h3>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/p/AINOA-Coiffure-Onglerie-100053444964982/" target="_blank" rel="noopener noreferrer" class="social-icon">Facebook</a>
-                            <a href="https://www.instagram.com/ainoa.coiffure37/#" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
-                            <a href="http://planity.com/ainoa-37540-saint-cyr-sur-loire" target="_blank" rel="noopener noreferrer" class="social-icon">Planity</a>
+                            <a href="https://www.facebook.com/p/AINOA-Coiffure-Onglerie-100053444964982/"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-icon">Facebook</a>
+                            <a href="https://www.instagram.com/ainoa.coiffure37/#"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-icon">Instagram</a>
+                            <a href="http://planity.com/ainoa-37540-saint-cyr-sur-loire"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-icon">Planity</a>
                         </div>
+                    </div>
+
+                    <!-- Adresse -->
                     <div class="info-block">
                         <h3>Adresse</h3>
                         <p>44 Bd Charles de Gaulle<br>37540 Saint-Cyr-sur-Loire</p>
                     </div>
+
+                    <!-- Téléphone -->
                     <div class="info-block">
                         <h3>Téléphone</h3>
-                        <p>02 47 49 87 29</p>
+                        <p><a href="tel:+33247498729">02 47 49 87 29</a></p>
                     </div>
+
+                    <!-- Horaires -->
                     <div class="info-block">
                         <h3>Horaires</h3>
                         <p>Mardi - Vendredi : 9h - 19h<br>Samedi : 9h - 17h</p>
                     </div>
+
                 </div>
             </div>
 
-            <!-- NOUVEAU : Conteneur pour la carte Google Maps -->
+            <!-- Carte Google Maps -->
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.049405628587!2d0.6746795000000001!3d47.410420899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd50b016f3493%3A0x2f93239c75503d3b!2sA%C3%8FNOA!5e0!3m2!1sfr!2sfr!4v1699999999999"
+                    title="Localisation du salon Ainoa Coiffure"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
-            <!-- Fin du conteneur pour la carte -->
 
         </section>
+
     </main>
 
+    <!-- ======================= Pied de page ======================= -->
     <footer class="main-footer">
-        <p>© 2024 Ainoa Coiffure - Tous droits réservés.</p>
+
+        <!-- Adresse proéminente dans le footer -->
+        <address class="footer-address">
+            <strong>Ainoa Coiffure</strong>
+            <p>44 Bd Charles de Gaulle, 37540 Saint-Cyr-sur-Loire</p>
+            <p><a href="tel:+33247498729">02 47 49 87 29</a></p>
+            <p>Mar – Ven : 9h–19h &nbsp;|&nbsp; Sam : 9h–17h</p>
+        </address>
+
+        <p class="footer-copy">© 2024 Ainoa Coiffure — Tous droits réservés.</p>
+
     </footer>
 
-    <script>
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const navLinks = document.querySelectorAll('.mobile-nav a');
+    <!-- Script principal (chargé en différé) -->
+    <script src="assets/js/main.js" defer></script>
 
-        function closeMenu() {
-            mobileNav.classList.remove('is-active');
-            mobileNavToggle.classList.remove('is-active');
-        }
-
-        mobileNavToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('is-active');
-            mobileNavToggle.classList.toggle('is-active');
-        });
-
-        // Ferme le menu quand on clique sur un lien
-        navLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slidesContainer = document.querySelector('.carousel-slides');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dotsContainer = document.querySelector('.carousel-dots');
-
-            if (!slidesContainer || slides.length === 0) return;
-
-            let currentIndex = 0;
-            let slideInterval;
-
-            // Créer les points de navigation
-            slides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.classList.add('dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetInterval();
-                });
-                dotsContainer.appendChild(dot);
-            });
-
-            const dots = document.querySelectorAll('.dot');
-
-            // Fonction pour aller à une diapositive spécifique
-            function goToSlide(index) {
-                slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-                dots.forEach(d => d.classList.remove('active'));
-                dots[index].classList.add('active');
-                currentIndex = index;
-            }
-
-            // Fonction pour la diapositive suivante
-            function nextSlide() {
-                const nextIndex = (currentIndex + 1) % slides.length;
-                goToSlide(nextIndex);
-            }
-
-            // Démarrer le défilement automatique
-            function startInterval() {
-                slideInterval = setInterval(nextSlide, 5000); // Change de slide toutes les 5 secondes
-            }
-            
-            // Redémarrer l'intervalle (si l'utilisateur interagit)
-            function resetInterval() {
-                clearInterval(slideInterval);
-                startInterval();
-            }
-
-            // Initialiser le carrousel
-            goToSlide(0);
-            startInterval();
-        });
-    </script>
 </body>
 </html>

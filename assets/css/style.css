@@ -1,0 +1,676 @@
+/* ==========================================================================
+   AINOA COIFFURE — Feuille de styles principale
+   ==========================================================================
+   TABLE DES MATIÈRES
+   --------------------------------------------------------------------------
+   1. RESET & BASE
+   2. VARIABLES CSS
+   3. TYPOGRAPHIE
+   4. COMPOSANTS PARTAGÉS (Boutons)
+   5. HEADER & NAVIGATION DESKTOP
+   6. NAVIGATION MOBILE
+   7. HÉROS (CARROUSEL)
+   8. SECTION HEAD SPA
+   9. SECTION GALERIE
+   10. SECTION CONTACT & CARTE
+   11. FOOTER
+   12. RESPONSIVE — TABLETTE (max 1024px)
+   13. RESPONSIVE — MOBILE (max 767px)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. RESET & BASE
+   ========================================================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Compense le header fixe */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--dark-text);
+    line-height: 1.7;
+    background-color: var(--white);
+    font-size: 16px; /* Minimum lisible sur mobile */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* ==========================================================================
+   2. VARIABLES CSS
+   ========================================================================== */
+
+:root {
+    /* Couleurs */
+    --primary-orange: rgb(225, 94, 19);
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-text: #343a40;
+    --gray-text: #6c757d;
+
+    /* Typographie */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    /* Espacements */
+    --header-height: 80px;
+    --section-padding: 80px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--section-padding) 0;
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHIE
+   ========================================================================== */
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--dark-text);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* h1 — Titre principal héros */
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+/* h2 — Titres de sections */
+h2 {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* h3 — Sous-titres de blocs */
+h3 {
+    font-size: 1.4rem;
+}
+
+p.subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    color: var(--gray-text);
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+
+/* ==========================================================================
+   4. COMPOSANTS PARTAGÉS — Boutons
+   ========================================================================== */
+
+.btn {
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    border: 2px solid var(--primary-orange);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-orange);
+}
+
+/* Taille réduite du bouton dans le header */
+.btn-header {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   5. HEADER & NAVIGATION DESKTOP
+   ========================================================================== */
+
+.main-header {
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    height: var(--header-height);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+}
+
+/* Logo */
+.logo {
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+}
+
+/* Navigation desktop */
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-orange);
+}
+
+/* Bouton hamburger — masqué sur desktop */
+.mobile-nav-toggle {
+    display: none;
+}
+
+
+/* ==========================================================================
+   6. NAVIGATION MOBILE
+   ========================================================================== */
+
+/* Menu mobile — masqué sur desktop */
+.mobile-nav {
+    display: none;
+}
+
+
+/* ==========================================================================
+   7. HÉROS (CARROUSEL)
+   ========================================================================== */
+
+#hero {
+    margin-top: var(--header-height); /* Compense le header fixe */
+    padding: 0;
+}
+
+/* Conteneur du carrousel */
+.hero-carousel-container {
+    width: 100%;
+    height: 60vh;
+    min-height: 320px;
+    position: relative;
+    background-color: var(--dark-text);
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    padding: 10px; /* Cadre autour de l'image */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Image entière visible, sans rognage */
+    display: block;
+}
+
+/* Points de navigation du carrousel */
+.carousel-dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: var(--white);
+}
+
+/* Contenu textuel sous le carrousel */
+#hero .hero-content {
+    padding: 60px 20px 0 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero .hero-content h1 {
+    margin-bottom: 16px;
+}
+
+#hero .hero-content p {
+    color: var(--gray-text);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+}
+
+
+/* ==========================================================================
+   8. SECTION HEAD SPA
+   ========================================================================== */
+
+.head-spa-section {
+    padding: var(--section-padding) 0;
+}
+
+.head-spa-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.head-spa-image {
+    width: 100%;
+    max-width: 800px;
+}
+
+.head-spa-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.head-spa-text {
+    text-align: center;
+    max-width: 700px;
+}
+
+.head-spa-text h3 {
+    margin-bottom: 16px;
+}
+
+.head-spa-text p {
+    color: var(--gray-text);
+    margin-bottom: 28px;
+}
+
+
+/* ==========================================================================
+   9. SECTION GALERIE
+   ========================================================================== */
+
+#gallery {
+    background-color: var(--light-gray);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 4 / 3; /* Uniformise la hauteur des items */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ==========================================================================
+   10. SECTION CONTACT & CARTE
+   ========================================================================== */
+
+#contact {
+    padding-bottom: 0;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.info-block h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary-orange);
+}
+
+.info-block p {
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Liens réseaux sociaux */
+.social-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--dark-text);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-orange);
+}
+
+/* Carte Google Maps */
+.map-container {
+    margin-top: 80px;
+    height: 420px;
+    width: 100%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+
+.main-footer {
+    background-color: var(--dark-text);
+    color: var(--light-gray);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Adresse proéminente dans le footer */
+.footer-address {
+    margin-bottom: 20px;
+}
+
+.footer-address strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 6px;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.footer-address p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-address a {
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-address a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 16px;
+}
+
+
+/* ==========================================================================
+   12. RESPONSIVE — TABLETTE (max 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 60px;
+    }
+
+    .main-nav ul {
+        gap: 22px;
+    }
+}
+
+
+/* ==========================================================================
+   13. RESPONSIVE — MOBILE (max 767px)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    :root {
+        --header-height: 64px;
+        --section-padding: 50px;
+    }
+
+    /* Scroll offset ajusté pour header mobile */
+    html {
+        scroll-padding-top: 64px;
+    }
+
+    /* --- Header --- */
+    .main-header {
+        height: var(--header-height);
+    }
+
+    /* Masquer nav desktop */
+    .main-nav {
+        display: none;
+    }
+
+    /* Bouton hamburger — affiché sur mobile */
+    .mobile-nav-toggle {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        position: relative;
+        z-index: 1001;
+        flex-shrink: 0;
+    }
+
+    .mobile-nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-orange);
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .mobile-nav-toggle span:nth-child(1) { top: 7px; }
+    .mobile-nav-toggle span:nth-child(2) { top: 15px; }
+    .mobile-nav-toggle span:nth-child(3) { top: 23px; }
+
+    /* Animation hamburger → croix */
+    .mobile-nav-toggle.is-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-nav-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    .mobile-nav-toggle.is-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* --- Menu mobile plein écran --- */
+    .mobile-nav {
+        display: flex;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    .mobile-nav.is-active {
+        transform: translateX(0);
+    }
+
+    .mobile-nav ul {
+        text-align: center;
+    }
+
+    .mobile-nav li {
+        margin-bottom: 28px;
+    }
+
+    .mobile-nav a {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--dark-text);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+        color: var(--primary-orange);
+    }
+
+    /* Bouton RDV dans le menu mobile — taille généreuse */
+    .mobile-nav .btn-primary {
+        font-size: 1.1rem;
+        padding: 16px 36px;
+        min-width: 200px;
+        text-align: center;
+    }
+
+    /* --- Héros --- */
+    .hero-carousel-container {
+        height: 45vw;
+        min-height: 220px;
+    }
+
+    #hero .hero-content {
+        padding: 40px 16px 0 16px;
+    }
+
+    #hero .hero-content h1 {
+        margin-bottom: 12px;
+    }
+
+    #hero .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    /* --- Contact --- */
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- Carte --- */
+    .map-container {
+        height: 320px;
+        margin-top: 50px;
+    }
+
+    /* --- Footer --- */
+    .footer-address strong {
+        font-size: 1rem;
+    }
+}
