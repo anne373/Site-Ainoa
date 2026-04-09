@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aïnoa Coiffure – Inauguration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent:    #C8752E;
+      --accent2:   #E8A55A;
+      --light:     #F7F4F0;
+      --gray:      #E6E6E6;
+      --dark:      #1C1714;
+      --body:      #5A5047;
+      --radius:    24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0px; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Fond élégant : dégradé mesh orange/gris/blanc */
+      background:
+        radial-gradient(ellipse at 10% 0%, rgba(200,117,46,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 100%, rgba(232,165,90,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(226,221,216,0.6) 0%, transparent 80%),
+        #F0EBE4;
+      font-family: 'Jost', sans-serif;
+      padding: 46px 18px;
+    }
+
+    /* ── CARTE ── */
+    .card {
+      width: 529px;
+      max-width: 100%;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow:
+        0 2px 4px rgba(200,117,46,0.06),
+        0 8px 24px rgba(0,0,0,0.08),
+        0 32px 64px rgba(0,0,0,0.10);
+      position: relative;
+    }
+
+    /* Liseré doré sur le bord gauche */
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+      z-index: 2;
+    }
+
+    /* ── LOGO ── */
+    .logo-wrap {
+      background: var(--gray);
+      padding: 29px 53px 21px;
+      display: flex;
+      justify-content: center;
+    }
+    .logo-wrap img {
+      width: 297px;
+      height: auto;
+      display: block;
+    }
+
+    /* ── PARTENAIRES ── */
+    .partners-bar {
+      background: var(--gray);
+      border-top: 1px solid rgba(200,117,46,0.15);
+      padding: 10px 26px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+    }
+    .partners-label {
+      font-size: 0.820rem;
+      color: #999;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .partners-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+    .partners-logos img {
+      height: 43px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ── CORPS ── */
+    .body {
+      padding: 43px 47px 47px;
+      text-align: center;
+      background: #fff;
+    }
+
+    /* Titre */
+    .title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 1.719rem;
+      line-height: 1.25;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hair-spa {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 2.909rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: none;
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    /* Séparateur élégant : ornement */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,117,46,0.35));
+    }
+    .ornament::after {
+      background: linear-gradient(to left, transparent, rgba(200,117,46,0.35));
+    }
+    .ornament-diamond {
+      width: 7px;
+      height: 6px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    /* Date */
+    .date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.248rem;
+      color: var(--dark);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .heure {
+      margin-top: 7px;
+      font-size: 1.164rem;
+      color: var(--body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    /* Offre duo */
+    .offre-head {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .offre-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 1.455rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dark);
+    }
+    .offre-desc {
+      font-size: 1.229rem;
+      color: var(--body);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* CTA */
+    .cta-main {
+      font-weight: 600;
+      font-size: 1.322rem;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+    }
+    .cta-sub {
+      margin-top: 5px;
+      font-size: 1.164rem;
+      color: var(--body);
+      font-weight: 300;
+    }
+
+    /* ── BOUTON CTA ── */
+    .btn-respond {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 13px 36px;
+      background: linear-gradient(135deg, #C8752E, #E8A55A);
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(200,117,46,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-respond:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,117,46,0.45);
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <img src="../assets/images/logo-ainoa.png" alt="Logo Ainoa Coiffure">
+  </div>
+
+  <!-- CORPS -->
+  <div class="body">
+    <h1 class="title">
+      <span class="hair-spa">Aïnoa Coiffure</span>
+    </h1>
+
+    <div class="ornament">
+      <div class="ornament-diamond"></div>
+    </div>
+
+    <p class="date">C'est l'inauguration !</p>
+    <p class="heure">Samedi 30 Août</p>
+
+    <div class="ornament">
+      <div class="ornament-diamond"></div>
+    </div>
+
+    <div class="offre-head">
+      <span class="offre-label">Promotion Spéciale</span>
+    </div>
+    <p class="offre-desc">
+      -20% sur tous les soins<br>
+      Découvrez notre nouvel espace Head SPA
+    </p>
+
+    <p class="cta-main">Une expérience unique</p>
+    <p class="cta-sub">Art de la coiffure • Passion du soin</p>
+
+    <a href="https://www.planity.com/ainoa-37540-saint-cyr-sur-loire" class="btn-respond" target="_blank" rel="noopener noreferrer">
+      Prendre RDV
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
