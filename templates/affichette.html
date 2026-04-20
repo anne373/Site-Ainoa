@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aïnoa Coiffure – Affichettes Inauguration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent:  #C8752E;
+      --accent2: #E8A55A;
+      --dark:    #1C1714;
+      --body:    #5A5047;
+      --gray:    #E6E6E6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ccc;
+      font-family: 'Jost', sans-serif;
+    }
+
+    /* ── UNE AFFICHETTE = UNE PAGE A4 ── */
+    .affichette {
+      width: 210mm;
+      height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14mm 14mm 12mm;
+      /* Fond dégradé mesh comme la page inauguration */
+      background:
+        radial-gradient(ellipse at 10% 0%,   rgba(200,117,46,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 100%, rgba(232,165,90,0.10) 0%, transparent 50%),
+        #fff;
+    }
+
+    /* Bordure dorée sur les 4 côtés */
+    .affichette::before {
+      content: '';
+      position: absolute;
+      inset: 8mm;
+      border: 1.5px solid rgba(200,117,46,0.35);
+      pointer-events: none;
+    }
+    /* Coin décoratif en dégradé */
+    .affichette::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    }
+
+    /* ── EN-TÊTE ── */
+    .header {
+      text-align: center;
+      width: 100%;
+    }
+    .logo {
+      height: 55px;
+      width: auto;
+      margin-bottom: 7mm;
+    }
+    .badge-event {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 0.70rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 50px;
+      margin-bottom: 5mm;
+    }
+    .titre-principal {
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .titre-cursif {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 3.2rem;
+      color: var(--accent);
+      line-height: 1.05;
+      margin-top: 2mm;
+    }
+
+    /* ── ORNEMENT ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 70%;
+      margin: 6mm auto;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,117,46,0.40));
+    }
+    .ornament::after {
+      background: linear-gradient(to left, transparent, rgba(200,117,46,0.40));
+    }
+    .diamond {
+      width: 7px; height: 7px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+
+    /* ── OFFRES ── */
+    .offres {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 5mm;
+    }
+    .offre-item {
+      display: flex;
+      align-items: center;
+      gap: 5mm;
+      background: rgba(200,117,46,0.05);
+      border: 1px solid rgba(200,117,46,0.20);
+      border-radius: 12px;
+      padding: 5mm 7mm;
+    }
+    .offre-remise {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      white-space: nowrap;
+      min-width: 70px;
+      text-align: center;
+    }
+    .offre-remise span {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .offre-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(200,117,46,0.30);
+      flex-shrink: 0;
+    }
+    .offre-text {
+      flex: 1;
+    }
+    .offre-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--body);
+      margin-bottom: 2px;
+    }
+    .offre-nom {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    /* ── DATE ── */
+    .date-block {
+      text-align: center;
+      width: 100%;
+    }
+    .date-label {
+      font-size: 0.70rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .date-valeur {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 1mm;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      width: 100%;
+    }
+    .footer p {
+      font-size: 0.68rem;
+      color: #999;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════
+       VERSION 2 : fond sombre
+    ═══════════════════════════════ */
+    .affichette.dark {
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(200,117,46,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(232,165,90,0.18) 0%, transparent 50%),
+        #1C1714;
+    }
+    .affichette.dark::before {
+      border-color: rgba(232,165,90,0.30);
+    }
+    .affichette.dark .titre-principal { color: #F7F4F0; }
+    .affichette.dark .offre-item {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(232,165,90,0.25);
+    }
+    .affichette.dark .offre-label { color: #b5a99e; }
+    .affichette.dark .offre-nom   { color: #F7F4F0; }
+    .affichette.dark .date-valeur { color: #F7F4F0; }
+    .affichette.dark .date-label  { color: #b5a99e; }
+    .affichette.dark .footer p    { color: #5a5047; }
+
+    /* ══ IMPRESSION ══ */
+    @media print {
+      body { background: none; }
+      .affichette {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .affichette:last-child { page-break-after: avoid; }
+      @page { size: A4; margin: 0; }
+    }
+
+    /* ══ BOUTON IMPRIMER (web only) ══ */
+    .print-btn {
+      display: block;
+      margin: 10px auto 30px;
+      padding: 12px 40px;
+      background: linear-gradient(135deg, #C8752E, #E8A55A);
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(200,117,46,0.40);
+    }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer les 2 affichettes</button>
+
+  <!-- ════════════════════════════
+       AFFICHETTE 1 — Fond clair
+  ════════════════════════════ -->
+  <div class="affichette">
+
+    <div class="header">
+      <img class="logo" src="../assets/images/logo-ainoa.png" alt="Ainoa Coiffure">
+      <div class="badge-event">✦ Soirée Inauguration ✦</div>
+      <p class="titre-principal">Offres exceptionnelles</p>
+      <p class="titre-cursif">Hair SPA</p>
+    </div>
+
+    <div class="ornament"><div class="diamond"></div></div>
+
+    <div class="offres">
+
+      <div class="offre-item">
+        <div class="offre-remise">5<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Hair SPA Relaxant</p>
+        </div>
+      </div>
+
+      <div class="offre-item">
+        <div class="offre-remise">10<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Profond Hair SPA</p>
+        </div>
+      </div>
+
+      <div class="offre-item">
+        <div class="offre-remise">15<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Traitant &amp; Relaxant Hair SPA</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ornament"><div class="diamond"></div></div>
+
+    <div class="date-block">
+      <p class="date-label">Valable uniquement le soir de l'inauguration</p>
+      <p class="date-valeur">Samedi 30 Août 2025</p>
+    </div>
+
+    <div class="footer">
+      <p>44 Bd Charles de Gaulle — 37540 Saint-Cyr-sur-Loire</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════
+       AFFICHETTE 2 — Fond sombre
+  ════════════════════════════ -->
+  <div class="affichette dark">
+
+    <div class="header">
+      <img class="logo" src="../assets/images/logo-ainoa.png" alt="Ainoa Coiffure">
+      <div class="badge-event">✦ Soirée Inauguration ✦</div>
+      <p class="titre-principal">Offres exceptionnelles</p>
+      <p class="titre-cursif">Hair SPA</p>
+    </div>
+
+    <div class="ornament"><div class="diamond"></div></div>
+
+    <div class="offres">
+
+      <div class="offre-item">
+        <div class="offre-remise">5<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Hair SPA Relaxant</p>
+        </div>
+      </div>
+
+      <div class="offre-item">
+        <div class="offre-remise">10<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Profond Hair SPA</p>
+        </div>
+      </div>
+
+      <div class="offre-item">
+        <div class="offre-remise">15<span>€</span></div>
+        <div class="offre-divider"></div>
+        <div class="offre-text">
+          <p class="offre-label">Remise immédiate sur</p>
+          <p class="offre-nom">Soin Traitant &amp; Relaxant Hair SPA</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ornament"><div class="diamond"></div></div>
+
+    <div class="date-block">
+      <p class="date-label">Valable uniquement le soir de l'inauguration</p>
+      <p class="date-valeur">Samedi 30 Août 2025</p>
+    </div>
+
+    <div class="footer">
+      <p>44 Bd Charles de Gaulle — 37540 Saint-Cyr-sur-Loire</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
