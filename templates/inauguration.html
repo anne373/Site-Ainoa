@@ -257,7 +257,15 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(200, 117, 46, 0.45);
     }
-  </style>
+
+    /* ── BOUTON VERROUILLÉ ── */
+    .btn-locked {
+      opacity: 0.45;
+      cursor: not-allowed;
+      filter: grayscale(0.4);
+      pointer-events: none;
+    }
+      </style>
 </head>
 
 <body>
@@ -329,13 +337,68 @@
         <div class="ornament-diamond"></div>
       </div>
 
-      <div class="cta-main">Venez accompagnés !</div>
-      <div class="cta-sub">Confirmation souhaitée</div>
-      <a class="btn-respond"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfjucpFj8LqPomACY3vjo5GyBrH7vMSxHcAzSs7EM75oJapsQ/viewform?usp=dialog"
-        target="_blank">
-        Répondre ici
+      <div class="cta-main">Découvrez nos offres du soir</div>
+      <div id="timer-label" class="cta-sub">Disponible à 17h55</div>
+
+      <a id="btn-offres" class="btn-respond btn-locked" href="#" onclick="return false;">
+        <span id="btn-text">Voir les offres</span>
       </a>
+
+      <script>
+        (function() {
+          var btn      = document.getElementById('btn-offres');
+          var label    = document.getElementById('timer-label');
+          var btnText  = document.getElementById('btn-text');
+          var TARGET   = { h: 18, m: 0 };   // heure d'ouverture
+          var UNLOCK   = { h: 17, m: 55 };  // heure de déblocage
+
+          function pad(n) { return n < 10 ? '0' + n : n; }
+
+          function tick() {
+            var now   = new Date();
+            var hNow  = now.getHours();
+            var mNow  = now.getMinutes();
+            var sNow  = now.getSeconds();
+
+            var unlockSec = UNLOCK.h * 3600 + UNLOCK.m * 60;
+            var targetSec = TARGET.h * 3600 + TARGET.m * 60;
+            var nowSec    = hNow * 3600 + mNow * 60 + sNow;
+
+            if (nowSec < unlockSec) {
+              // Bouton verrouillé — countdown vers 17h55
+              var diff = unlockSec - nowSec;
+              var mm   = Math.floor(diff / 60);
+              var ss   = diff % 60;
+              label.textContent   = 'Disponible dans ' + mm + 'min ' + pad(ss) + 's';
+              btnText.textContent = 'Voir les offres';
+              btn.classList.add('btn-locked');
+              btn.onclick = function() { return false; };
+              btn.href    = '#';
+            } else if (nowSec < targetSec) {
+              // Débloqué mais pas encore 18h — countdown vers 18h
+              var diff = targetSec - nowSec;
+              var mm   = Math.floor(diff / 60);
+              var ss   = diff % 60;
+              label.textContent   = '✦ Soirée dans ' + mm + 'min ' + pad(ss) + 's ✦';
+              btnText.textContent = 'Voir les offres';
+              btn.classList.remove('btn-locked');
+              btn.onclick = null;
+              btn.href    = 'affichette.html';
+            } else {
+              // 18h passées — bouton actif permanent
+              label.textContent   = '✦ La soirée a commencé ✦';
+              btnText.textContent = 'Voir les offres';
+              btn.classList.remove('btn-locked');
+              btn.onclick = null;
+              btn.href    = 'affichette.html';
+              clearInterval(timer);
+            }
+          }
+
+          tick();
+          var timer = setInterval(tick, 1000);
+        })();
+      </script>
 
     </div>
   </div>
